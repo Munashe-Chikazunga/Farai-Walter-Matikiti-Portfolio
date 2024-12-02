@@ -7,6 +7,7 @@
     <title>Portfolio - Farai Walter Matikiti</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* General Styles */
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
@@ -16,29 +17,30 @@
             background-color: #fafafa;
         }
 
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
         .navbar {
             background: #333;
             color: #fff;
             display: flex;
-            justify-content: space-between;
-            padding: 15px 20px;
+            justify-content: center;
             align-items: center;
+            padding: 15px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 10;
         }
 
-        .nav-toggle {
-            display: none;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            color: #fff;
-        }
-
         .nav-links {
             display: flex;
+            list-style: none;
         }
 
         .nav-links a {
@@ -53,22 +55,32 @@
             color: #ffba08;
         }
 
+        .nav-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Portfolio Section */
         #portfolio {
             padding: 60px 20px;
-            text-align: center;
         }
 
         #portfolio h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 40px;
             color: #0077b6;
+            text-align: center;
         }
 
         .portfolio-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            text-align: left;
         }
 
         .project {
@@ -76,8 +88,6 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 20px;
-            max-width: 400px;
-            text-align: left;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s;
         }
@@ -97,13 +107,20 @@
         h3 {
             color: #0077b6;
             margin-bottom: 10px;
+            text-align: center;
         }
 
+        /* Contact Section */
         #contact {
             background: #333;
             color: white;
             text-align: center;
             padding: 40px 20px;
+        }
+
+        #contact h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
 
         #contact a {
@@ -113,6 +130,32 @@
 
         #contact a:hover {
             color: #ffd43b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #444;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .nav-links.show-nav {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            #portfolio h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -159,6 +202,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <footer id="contact" class="footer">
         <div class="container">
             <h2>Contact Me</h2>
@@ -167,8 +211,9 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navToggle = document.getElementById('nav-toggle');
             const navLinks = document.getElementById('nav-links');
 
@@ -179,7 +224,7 @@
 
             // Smooth scrolling for buttons and links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
