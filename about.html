@@ -64,17 +64,66 @@
             cursor: pointer;
         }
 
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/farai-picture2.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px);
+            z-index: -2;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+            z-index: 1; /* Ensure content is above the blurred background */
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
         /* About Section */
         #about {
             padding: 60px 20px;
             background: #f0f0f0;
         }
 
-        #about h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+        #about h2 {
+            font-size: 2rem;
             color: #0077b6;
+            margin-bottom: 30px;
         }
 
         #about p {
@@ -99,13 +148,6 @@
 
         .skills:hover, .experience:hover, .education:hover, .languages:hover {
             transform: translateY(-10px);
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 1.8rem;
-            color: #0077b6;
-            margin-bottom: 20px;
         }
 
         ul {
@@ -179,7 +221,16 @@
                 display: block;
             }
 
-            #about h1 {
+            .hero-section {
+                height: auto;
+                padding: 40px 20px;
+            }
+
+            .hero-section::before {
+                filter: blur(5px);
+            }
+
+            .hero-section h1 {
                 font-size: 2rem;
             }
 
@@ -209,10 +260,18 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <header class="hero-section" id="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>About Farai Walter Matikiti</h1>
+        </div>
+    </header>
+
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <h1>About Me</h1>
+            <h2>Who I Am</h2>
             <p>I'm Farai Walter Matikiti, a dedicated digital marketing specialist who is passionate about helping brands grow through creative digital initiatives. My focus is on enhancing online visibility and driving meaningful engagement for brands of all sizes.</p>
 
             <div class="skills">
