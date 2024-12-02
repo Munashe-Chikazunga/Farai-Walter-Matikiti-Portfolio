@@ -7,6 +7,7 @@
     <title>About Farai Walter Matikiti</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* General Styles */
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
@@ -16,6 +17,13 @@
             background-color: #fafafa;
         }
 
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
         .navbar {
             background: #333;
             color: #fff;
@@ -29,16 +37,9 @@
             z-index: 10;
         }
 
-        .nav-toggle {
-            display: none;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            color: #fff;
-        }
-
         .nav-links {
             display: flex;
+            list-style: none;
         }
 
         .nav-links a {
@@ -53,6 +54,16 @@
             color: #ffba08;
         }
 
+        .nav-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* About Section */
         #about {
             padding: 60px 20px;
             background: #f0f0f0;
@@ -60,7 +71,7 @@
 
         #about h1 {
             text-align: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 30px;
             color: #0077b6;
         }
@@ -89,7 +100,7 @@
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #0077b6;
             margin-bottom: 20px;
         }
@@ -117,14 +128,17 @@
         .education-logos {
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
             margin-top: 20px;
         }
 
         .education-logo img {
             max-width: 100px;
             height: auto;
+            margin: 10px;
         }
 
+        /* Contact Section */
         #contact {
             background: #333;
             color: white;
@@ -139,6 +153,40 @@
 
         #contact a:hover {
             color: #ffd43b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #444;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .nav-links.show-nav {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            #about h1 {
+                font-size: 2rem;
+            }
+
+            #about p {
+                font-size: 1rem;
+            }
+
+            .education-logo img {
+                max-width: 80px;
+            }
         }
     </style>
 </head>
@@ -204,7 +252,7 @@
 
             <div class="education">
                 <h2>Education</h2>
-                <p>Digital Marketing Graduate - Uncommon.org</p>
+                <p><strong>Digital Marketing Graduate - Uncommon.org</strong></p>
                 <p>Advanced Level - Presbyterian Paraclete College</p>
                 <p>Ordinary Level - Corpus Christi High</p>
                 <div class="education-logos">
@@ -222,6 +270,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <footer id="contact" class="footer">
         <div class="container">
             <h2>Contact Me</h2>
@@ -230,8 +279,9 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navToggle = document.getElementById('nav-toggle');
             const navLinks = document.getElementById('nav-links');
 
@@ -242,7 +292,7 @@
 
             // Smooth scrolling for buttons and links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
