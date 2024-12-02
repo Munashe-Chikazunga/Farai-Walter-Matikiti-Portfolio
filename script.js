@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('show-nav');
     });
 
-    // Smooth scrolling
+    // Smooth scrolling for navigation links
     const smoothScroll = (target, duration) => {
         const targetElement = document.querySelector(target);
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
@@ -41,5 +41,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 smoothScroll(target, 1000);
             }
         });
+    });
+
+    // Scroll animations for skill list items
+    const skillItems = document.querySelectorAll('.skills-list li');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    skillItems.forEach(item => {
+        observer.observe(item);
     });
 });
