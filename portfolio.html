@@ -5,8 +5,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Farai Walter Matikiti</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .navbar {
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links a {
+            margin: 0 15px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            color: #ffba08;
+        }
+
+        #portfolio {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #portfolio h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: #0077b6;
+        }
+
+        .portfolio-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .project {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #0077b6;
+            margin-bottom: 10px;
+        }
+
+        #contact {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        #contact a {
+            color: #ffba08;
+            text-decoration: none;
+        }
+
+        #contact a:hover {
+            color: #ffd43b;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,16 +137,18 @@
         <div class="container">
             <h1>My Portfolio</h1>
             <div class="portfolio-list">
+                <!-- Project 1 -->
                 <div class="project">
                     <a href="https://sites.google.com/view/fm-fashions/home?authuser=0" target="_blank">
-                        <img src="images/fm-fashions-preview.png" alt="FM Fashions Website Preview" class="portfolio-img">
+                        <img src="https://via.placeholder.com/400x200?text=FM+Fashions+Website" alt="FM Fashions Website Preview" class="portfolio-img">
                     </a>
                     <h3>FM Fashions Website</h3>
                     <p>Developed a vibrant website for FM Fashions using Google Sites. The site emphasizes easy navigation and engaging design to enhance brand visibility.</p>
                 </div>
+                <!-- Project 2 -->
                 <div class="project">
                     <a href="https://website-peach-nine-40.vercel.app/" target="_blank">
-                        <img src="images/peach-website-preview.png" alt="Peach Website Preview" class="portfolio-img">
+                        <img src="https://via.placeholder.com/400x200?text=Peach+Website" alt="Peach Website Preview" class="portfolio-img">
                     </a>
                     <h3>Peach Product Website</h3>
                     <p>Created a modern and responsive product website deployed on Vercel, focused on delivering an optimal user experience.</p>
@@ -47,7 +157,35 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:waltermatikiti9@gmail.com">waltermatikiti9@gmail.com</a></p>
+            <p>Phone: +263714247238 / +263778493729</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navLinks = document.getElementById('nav-links');
+
+            // Mobile navigation toggle
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('show-nav');
+            });
+
+            // Smooth scrolling for buttons and links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
