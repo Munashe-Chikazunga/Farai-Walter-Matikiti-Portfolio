@@ -15,27 +15,6 @@ body {
     padding: 0 20px;
 }
 
-/* Headings */
-h1, h2, h3 {
-    color: #333;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-top: 20px;
-}
-
-h2 {
-    font-size: 2.4rem;
-}
-
-h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
-}
-
 /* Navigation Bar */
 .navbar {
     background: #444;
@@ -74,68 +53,15 @@ h3 {
     color: #ffba08;
 }
 
-/* Hero Section */
-.hero-section {
-    background: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2') no-repeat center center/cover;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* Footer */
+.footer {
+    background-color: #444;
     color: white;
-    padding: 0 20px;
+    text-align: center;
+    padding: 20px 0;
 }
 
-.hero-section h1 {
-    font-size: 3rem;
-}
-
-.hero-section .tagline {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-}
-
-.hero-section .button {
-    padding: 10px 20px;
-    background-color: #ffba08;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.hero-section .button:hover {
-    background-color: #ff9505;
-}
-
-/* About and Portfolio Sections */
-section {
-    padding: 60px 0;
-    background-color: #fff;
-}
-
-.skills-list, .education-list {
-    list-style: none;
-    padding: 0;
-}
-
-.skills-list li, .education-list li {
-    margin-bottom: 10px;
-    background: #e6e6e6;
-    padding: 10px;
-    border-radius: 5px;
-    transition: transform 0.3s, opacity 0.3s;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.skills-list li.in-view, .education-list li.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Portfolio Section */
+/* Portfolio */
 .portfolio-list {
     display: flex;
     flex-wrap: wrap;
@@ -164,25 +90,7 @@ section {
     margin-bottom: 15px;
 }
 
-/* Footer */
-.footer {
-    background-color: #444;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.footer a {
-    color: #ffba08;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.footer a:hover {
-    color: #fff;
-}
-
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -199,25 +107,12 @@ section {
         display: flex;
     }
 
-    .nav-links a {
-        padding: 15px;
-        margin: 0;
-        border-top: 1px solid #ffffff;
-    }
-
     .nav-toggle {
         display: block;
     }
 
-    .services-list, .portfolio-list {
+    .portfolio-list {
         flex-direction: column;
     }
-
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-section .tagline {
-        font-size: 1.2rem;
-    }
 }
+
